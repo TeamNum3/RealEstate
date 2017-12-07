@@ -50,6 +50,7 @@ namespace RealEstate_v2
                         item.Margin = new Thickness(0, item.Margin.Top + margin, 0, item.Margin.Bottom - margin);
                     }
                 }
+
                 logoImage.Width += deltaWidth;
                 logoImage.Height += deltaWidth;
             }
