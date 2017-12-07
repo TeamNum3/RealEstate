@@ -1,0 +1,44 @@
+﻿<Window x:Class="RealEstate_v2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RealEstate_v2"
+        mc:Ignorable="d"
+        Icon="Images/RealEstateIcon.png"
+        Title="Real Estate" MinHeight="350" MinWidth="525"  Height="350" Width="525"
+        SizeChanged="SizeWindowChangedEventHandler"
+        >
+    <Window.Resources>
+        <Style x:Key="TabItemStyle" TargetType="TabItem">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="MinWidth" Value="100"/>
+            <Setter Property="MaxWidth" Value="250"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="MaxHeight" Value="40"/>
+        </Style>
+    </Window.Resources>
+    <Grid Background="Ivory">
+        <StackPanel Panel.ZIndex="2" Margin="0,0,396,216">
+            <Image x:Name="logoImage" 
+                   Height="35" MaxHeight="60"
+                   VerticalAlignment="Top" HorizontalAlignment="Left" 
+                   Width="100" MaxWidth="250" 
+                   Source="Images/RealEstate.png" 
+                   Margin="0,15,0,0"/>
+            <!--<Button x:Name="LoginBtn"
+                    Width="100" MaxWidth="250" 
+                    Height="25" MaxHeight="40"
+                    Content="Вхід" Click="Button_Login" 
+                    Margin="0,0,0,0" HorizontalAlignment="Left"/>-->
+        </StackPanel>
+        <TabControl Name="MainTabControl"  TabStripPlacement="Left" Margin="-2,0,0,0">
+            <TabItem Header="Вхід" Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}"></TabItem>
+            <TabItem Header="Продаж" Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}"></TabItem>
+            <TabItem Header="Оренда"  Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}"></TabItem>
+            <TabItem Header="Подобово" Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}">g</TabItem>
+            <TabItem Header="Новини" Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}"></TabItem>
+            <TabItem Header="Карта" Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}"></TabItem>
+        </TabControl>
+    </Grid>
+</Window>
