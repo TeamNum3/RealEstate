@@ -26,11 +26,6 @@
                    Width="100" MaxWidth="250" 
                    Source="Images/RealEstate.png" 
                    Margin="0,15,0,0"/>
-            <!--<Button x:Name="LoginBtn"
-                    Width="100" MaxWidth="250" 
-                    Height="25" MaxHeight="40"
-                    Content="Вхід" Click="Button_Login" 
-                    Margin="0,0,0,0" HorizontalAlignment="Left"/>-->
         </StackPanel>
         <TabControl Name="MainTabControl"  TabStripPlacement="Left" Margin="-2,0,0,0">
             <TabItem Header="Вхід" Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}"></TabItem>
