@@ -32,7 +32,7 @@
             <TabItem Header="Продаж" Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}"></TabItem>
             <TabItem Header="Оренда"  Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}"></TabItem>
             <TabItem Header="Подобово" Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}">g</TabItem>
-            <TabItem Header="Новини" Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}"></TabItem>
+            <TabItem Header="Акції" Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}"></TabItem>
             <TabItem Header="Карта" Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}"></TabItem>
         </TabControl>
     </Grid>
