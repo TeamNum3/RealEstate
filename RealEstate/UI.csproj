@@ -97,5 +97,15 @@
     <Resource Include="Images\RealEstate.png" />
     <Resource Include="Images\RealEstateIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BUS\BUS.csproj">
+      <Project>{63401608-afcc-4050-a682-d66852912bb9}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{7086e4f5-c9dd-47c8-9d9c-6825c43eadfc}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

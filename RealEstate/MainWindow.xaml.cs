@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BUS;
+
 
 namespace RealEstate_v2
 {
@@ -63,6 +65,19 @@ namespace RealEstate_v2
                     item.Height += deltaHeight / 10;
                 }
                 logoImage.Height += deltaHeight;
+            }
+        }
+
+        private void Button_LoginClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception excep)
+            {
+                MessageLabel.Background = new SolidColorBrush(Colors.Red);
+                Message.Text = excep.Message;
             }
         }
     }
