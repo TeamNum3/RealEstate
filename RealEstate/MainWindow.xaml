@@ -28,20 +28,43 @@
                    Margin="0,15,0,0"/>
         </StackPanel>
         <TabControl Name="MainTabControl"  TabStripPlacement="Left" Margin="-2,0,0,0">
-            <TabItem Header="Вхід" Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}">
-                <StackPanel>
-                    <TextBox Width="150" Height="25" Margin="49,54,208,0"/>
-                    <Label Margin="0,-25,358,0" Content="Логін:"/>
-                    <Label Margin="0,0,363,0" Content="Пароль:"/>
-                    <TextBox Width="150" Height="25" Margin="49,-20,208,0"/>
-                    <Button Width="100" Height="25" Margin="100,10,207,0" Click="Button_LoginClick">Вхід</Button>
-                    <Label Name="MessageLabel" HorizontalContentAlignment="Center"
-                           Margin="0,10,208,0" Height="23">
-                        <Label.Content>
-                            <TextBlock Name="Message" FontSize="20"></TextBlock>
-                        </Label.Content>
-                    </Label>
-                </StackPanel>
+            <TabItem Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}">
+                <TabItem.Header>
+                    <TextBlock MouseLeftButtonDown="Button_EnterClick" Width="90" TextAlignment="Center">
+                        Вхід
+                    </TextBlock>
+                </TabItem.Header>
+                <!--<TabControl Name="SignIn">
+                    <TabItem Header="Увійти">
+                        <Canvas HorizontalAlignment="Center" Margin="57,49,348.6,-49.4">
+                            <TextBox Width="150" Height="25" Canvas.Left="128" Canvas.Top="42"/>
+                            <Label Content="Електронна пошта:" Canvas.Left="14" Canvas.Top="42"/>
+                            <Label Content="Пароль:" Canvas.Left="14" Canvas.Top="71"/>
+                            <PasswordBox Width="150" Height="25" Canvas.Left="128" Canvas.Top="72"/>
+                            <Button Width="100" Height="25" Click="Button_LoginClick" Content="Вхід" Canvas.Left="178" Canvas.Top="115"/>
+                            <Label x:Name="MessageLabel" HorizontalContentAlignment="Center" Height="22" Canvas.Left="10" Canvas.Top="15" Width="209">
+                                <TextBlock x:Name="Message" FontSize="20"/>
+                            </Label>
+                        </Canvas>
+                    </TabItem>
+                    <TabItem Header="Реєстрація">
+                        <Canvas>
+                            <Label x:Name="SignUpMessageLabel" HorizontalContentAlignment="Center" Height="22" Canvas.Left="51" Canvas.Top="49" Width="277">
+                                <TextBlock x:Name="SignUpMessage" FontSize="20"/>
+                            </Label>
+                            <Label Content="Логін:" Canvas.Left="51" Canvas.Top="78"/>
+                            <TextBox Width="150" Height="25" Canvas.Left="178" Canvas.Top="113"/>
+                            <Label Content="Електронна пошта:" Canvas.Left="51" Canvas.Top="112"/>
+                            <TextBox Width="150" Height="25" Canvas.Left="178" Canvas.Top="79"/>
+                            <Label Content="Пароль:" Canvas.Left="51" Canvas.Top="146"/>
+                            <PasswordBox Width="150" Height="25" Canvas.Left="178" Canvas.Top="146"/>
+                            <Label Content="Повторіть пароль:" Canvas.Left="51" Canvas.Top="180"/>
+                            <PasswordBox Width="150" Height="25" Canvas.Left="178" Canvas.Top="181"/>
+                            <Button Width="100" Height="25" Click="Button_LoginClick" Content="Зареєструватись" Canvas.Left="228" Canvas.Top="215"/>
+
+                        </Canvas>
+                    </TabItem>
+                </TabControl>-->
             </TabItem>
             <TabItem Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}">
                 <TabItem.Header>

@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models;
 
 namespace DAO
 {
     public class UserDAO
     {
-        public void GetUser()
+        public User GetUser(string username)
         {
-            
+            return new User();//заглушка
         }
     }
 }

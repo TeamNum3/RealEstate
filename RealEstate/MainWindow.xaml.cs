@@ -68,17 +68,12 @@ namespace RealEstate_v2
             }
         }
 
-        private void Button_LoginClick(object sender, RoutedEventArgs e)
-        {
-            try
-            {
 
-            }
-            catch (Exception excep)
-            {
-                MessageLabel.Background = new SolidColorBrush(Colors.Red);
-                Message.Text = excep.Message;
-            }
+        private void Button_EnterClick(object sender, RoutedEventArgs e)
+        {
+            Enter window = new Enter();
+
+            window.Show();
         }
     }
 }

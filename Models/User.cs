@@ -20,7 +20,7 @@ namespace Models
             set;
         }
 
-        User()
+        public User()
         {
         }
     }
