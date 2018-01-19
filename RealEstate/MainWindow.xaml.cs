@@ -25,6 +25,7 @@ namespace RealEstate_v2
         public MainWindow()
         {
             InitializeComponent();
+            Main.IsSelected = true;
         }
 
         private void SizeWindowChangedEventHandler(object sender, SizeChangedEventArgs e)
@@ -71,9 +72,19 @@ namespace RealEstate_v2
 
         private void Button_EnterClick(object sender, RoutedEventArgs e)
         {
-            Enter window = new Enter();
+            Dispatcher.BeginInvoke((Action)(() => MainTabControl.SelectedIndex = 1));
 
-            window.Show();
+            Enter window = new Enter();
+            window.Owner = this;
+            if (window.ShowDialog() == true)
+            {
+                MessageBox.Show("успішно");
+                EnterLabel.Text = "Кабінет користувача";
+                EnterLabel.MouseLeftButtonDown -= Button_EnterClick;
+            }
+            else
+            {
+            }
         }
     }
 }

@@ -8,10 +8,10 @@ using System.Data.Entity.SqlServer;
 
 namespace Models
 {
-    class MyContext : DbContext
+    public class MyContext : DbContext
     {
         public MyContext()
-            : base("RealEstate")
+            : base("RealEstateDB")
         {
         }
 

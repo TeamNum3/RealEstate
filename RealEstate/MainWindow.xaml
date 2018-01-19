@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:RealEstate_v2"
         mc:Ignorable="d"
         Icon="Images/RealEstateIcon.png"
-        Title="Real Estate" MinHeight="350" MinWidth="525"  Height="350" Width="525"
+        Title="Real Estate" MinHeight="356" MinWidth="525"  Height="350" Width="525"
         SizeChanged="SizeWindowChangedEventHandler"
         >
     <Window.Resources>
@@ -30,42 +30,12 @@
         <TabControl Name="MainTabControl"  TabStripPlacement="Left" Margin="-2,0,0,0">
             <TabItem Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}">
                 <TabItem.Header>
-                    <TextBlock MouseLeftButtonDown="Button_EnterClick" Width="90" TextAlignment="Center">
+                    <TextBlock Name="EnterLabel" MouseLeftButtonDown="Button_EnterClick" Width="90" TextAlignment="Center">
                         Вхід
                     </TextBlock>
                 </TabItem.Header>
-                <!--<TabControl Name="SignIn">
-                    <TabItem Header="Увійти">
-                        <Canvas HorizontalAlignment="Center" Margin="57,49,348.6,-49.4">
-                            <TextBox Width="150" Height="25" Canvas.Left="128" Canvas.Top="42"/>
-                            <Label Content="Електронна пошта:" Canvas.Left="14" Canvas.Top="42"/>
-                            <Label Content="Пароль:" Canvas.Left="14" Canvas.Top="71"/>
-                            <PasswordBox Width="150" Height="25" Canvas.Left="128" Canvas.Top="72"/>
-                            <Button Width="100" Height="25" Click="Button_LoginClick" Content="Вхід" Canvas.Left="178" Canvas.Top="115"/>
-                            <Label x:Name="MessageLabel" HorizontalContentAlignment="Center" Height="22" Canvas.Left="10" Canvas.Top="15" Width="209">
-                                <TextBlock x:Name="Message" FontSize="20"/>
-                            </Label>
-                        </Canvas>
-                    </TabItem>
-                    <TabItem Header="Реєстрація">
-                        <Canvas>
-                            <Label x:Name="SignUpMessageLabel" HorizontalContentAlignment="Center" Height="22" Canvas.Left="51" Canvas.Top="49" Width="277">
-                                <TextBlock x:Name="SignUpMessage" FontSize="20"/>
-                            </Label>
-                            <Label Content="Логін:" Canvas.Left="51" Canvas.Top="78"/>
-                            <TextBox Width="150" Height="25" Canvas.Left="178" Canvas.Top="113"/>
-                            <Label Content="Електронна пошта:" Canvas.Left="51" Canvas.Top="112"/>
-                            <TextBox Width="150" Height="25" Canvas.Left="178" Canvas.Top="79"/>
-                            <Label Content="Пароль:" Canvas.Left="51" Canvas.Top="146"/>
-                            <PasswordBox Width="150" Height="25" Canvas.Left="178" Canvas.Top="146"/>
-                            <Label Content="Повторіть пароль:" Canvas.Left="51" Canvas.Top="180"/>
-                            <PasswordBox Width="150" Height="25" Canvas.Left="178" Canvas.Top="181"/>
-                            <Button Width="100" Height="25" Click="Button_LoginClick" Content="Зареєструватись" Canvas.Left="228" Canvas.Top="215"/>
-
-                        </Canvas>
-                    </TabItem>
-                </TabControl>-->
             </TabItem>
+            <TabItem Header="Головна" Name="Main" Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}"></TabItem>
             <TabItem Margin="0,47,0,-47" Style="{StaticResource TabItemStyle}">
                 <TabItem.Header>
                     <Menu>

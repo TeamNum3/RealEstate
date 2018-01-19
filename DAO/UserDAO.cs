@@ -9,9 +9,21 @@ namespace DAO
 {
     public class UserDAO
     {
+        MyContext db;
+
+        public UserDAO()
+        {
+            db = new MyContext();
+        }
+
         public User GetUser(string username)
         {
-            return new User();//заглушка
+            return new User();//заглушкаs
+        }
+
+        public void RegisterUser(User user)
+        {
+            db.Users.Add(user);
         }
     }
 }

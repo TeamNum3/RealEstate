@@ -20,8 +20,21 @@ namespace Models
             set;
         }
 
+        string Email
+        {
+            get;
+            set;
+        }
+
         public User()
         {
+        }
+
+        public User(string username, string password, string email)
+        {
+            UserName = username;
+            Password = password;
+            Email = email;
         }
     }
 }

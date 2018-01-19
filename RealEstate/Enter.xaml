@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RealEstate_v2"
         mc:Ignorable="d"
-        Title="Enter" Height="353.731" Width="452.239">
+        Title="Авторизація" Height="353.731" Width="452.239"
+        Icon= "Images/loginImage.png"
+        ResizeMode="NoResize">
     <Grid Margin="0,0,3.6,12.4">
         <TabControl Name="SignIn">
             <TabItem Header="Увійти">
@@ -22,18 +24,19 @@
             </TabItem>
             <TabItem Header="Реєстрація">
                 <Canvas>
-                    <Label x:Name="SignUpMessageLabel" HorizontalContentAlignment="Center" Height="22" Canvas.Left="51" Canvas.Top="49" Width="277">
-                        <TextBlock x:Name="SignUpMessage" FontSize="20"/>
+                    <Label x:Name="SignUpMessageLabel" HorizontalContentAlignment="Center" Height="35" Canvas.Left="51" Canvas.Top="41" Width="277">
+                        <TextBlock x:Name="SignUpMessage" FontSize="20" Height="20"/>
                     </Label>
+                    
                     <Label Content="Логін:" Canvas.Left="51" Canvas.Top="78"/>
-                    <TextBox Width="150" Height="25" Canvas.Left="178" Canvas.Top="113"/>
+                    <TextBox Name="LoginRegister" Width="150" Height="25" Canvas.Left="178" Canvas.Top="79"/>
                     <Label Content="Електронна пошта:" Canvas.Left="51" Canvas.Top="112"/>
-                    <TextBox Width="150" Height="25" Canvas.Left="178" Canvas.Top="79"/>
+                    <TextBox Name="EmailRegister"  Width="150" Height="25" Canvas.Left="178" Canvas.Top="113"/>
                     <Label Content="Пароль:" Canvas.Left="51" Canvas.Top="146"/>
-                    <PasswordBox Width="150" Height="25" Canvas.Left="178" Canvas.Top="146"/>
+                    <PasswordBox Name="PasswordRegister" Width="150" Height="25" Canvas.Left="178" Canvas.Top="146"/>
                     <Label Content="Повторіть пароль:" Canvas.Left="51" Canvas.Top="180"/>
-                    <PasswordBox Width="150" Height="25" Canvas.Left="178" Canvas.Top="181"/>
-                    <Button Width="100" Height="25" Click="Button_LoginClick" Content="Зареєструватись" Canvas.Left="228" Canvas.Top="215"/>
+                    <PasswordBox Name="RepeatPasswordRegister" Width="150" Height="25" Canvas.Left="178" Canvas.Top="181"/>
+                    <Button Width="100" Height="25" Click="Button_RegisterClick" Content="Зареєструватись" Canvas.Left="228" Canvas.Top="215"/>
 
                 </Canvas>
             </TabItem>
