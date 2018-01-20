@@ -25,6 +25,7 @@ namespace RealEstate
         public Enter()
         {
             InitializeComponent();
+
         }
 
         private void Button_LoginClick(object sender, RoutedEventArgs e)
