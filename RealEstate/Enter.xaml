@@ -12,13 +12,13 @@
         <TabControl Name="SignIn">
             <TabItem Header="Увійти">
                 <Canvas HorizontalAlignment="Center" Margin="57,49,348.6,-49.4">
-                    <TextBox Width="150" Height="25" Canvas.Left="128" Canvas.Top="42"/>
-                    <Label Content="Електронна пошта:" Canvas.Left="14" Canvas.Top="42"/>
-                    <Label Content="Пароль:" Canvas.Left="14" Canvas.Top="71"/>
-                    <PasswordBox Width="150" Height="25" Canvas.Left="128" Canvas.Top="72"/>
+                    <TextBox Name="userName" Width="150" Height="25" Canvas.Left="128" Canvas.Top="42"/>
+                    <Label Content="Логін:" Canvas.Left="39" Canvas.Top="41"/>
+                    <Label Content="Пароль:" Canvas.Left="39" Canvas.Top="71"/>
+                    <PasswordBox Name="password" Width="150" Height="25" Canvas.Left="128" Canvas.Top="72"/>
                     <Button Width="100" Height="25" Click="Button_LoginClick" Content="Вхід" Canvas.Left="178" Canvas.Top="115"/>
-                    <Label x:Name="MessageLabel" HorizontalContentAlignment="Center" Height="22" Canvas.Left="10" Canvas.Top="15" Width="209">
-                        <TextBlock x:Name="Message" FontSize="20"/>
+                    <Label x:Name="MessageLabelLogin" HorizontalContentAlignment="Center" Height="22" Canvas.Left="54" Canvas.Top="15" Width="209">
+                        <TextBlock x:Name="MessageLogin" FontSize="20"/>
                     </Label>
                 </Canvas>
             </TabItem>
@@ -27,7 +27,7 @@
                     <Label x:Name="SignUpMessageLabel" HorizontalContentAlignment="Center" Height="35" Canvas.Left="51" Canvas.Top="41" Width="277">
                         <TextBlock x:Name="SignUpMessage" FontSize="20" Height="20"/>
                     </Label>
-                    
+
                     <Label Content="Логін:" Canvas.Left="51" Canvas.Top="78"/>
                     <TextBox Name="LoginRegister" Width="150" Height="25" Canvas.Left="178" Canvas.Top="79"/>
                     <Label Content="Електронна пошта:" Canvas.Left="51" Canvas.Top="112"/>
