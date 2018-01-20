@@ -21,30 +21,31 @@ namespace RealEstate
     /// </summary>
     public partial class Enter : Window
     {
-
+        UserService userService;
         public Enter()
         {
             InitializeComponent();
+            userService = new UserService();
         }
 
         private void Button_LoginClick(object sender, RoutedEventArgs e)
         {
             try
             {
-
+                userService.Authorization(userName.Text, password.Password);
                 DialogResult = true;
             }
             catch (ValidationException excep)
             {
-                MessageLabel.Background = new SolidColorBrush(Colors.Red);
-                Message.Text = excep.Message;
+                MessageLabelLogin.Background = new SolidColorBrush(Colors.Red);
+                MessageLogin.Text = excep.Message;
             }
         }
         private void Button_RegisterClick(object sender, RoutedEventArgs e)
         {
             try
             {
-               (new UserService()).Registration(LoginRegister.Text, PasswordRegister.Password, RepeatPasswordRegister.Password, EmailRegister.Text);
+                userService.Registration(LoginRegister.Text, PasswordRegister.Password, RepeatPasswordRegister.Password, EmailRegister.Text);
                 DialogResult = true;
             }
             catch (ValidationException excep)

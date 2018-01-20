@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -70,6 +70,27 @@ namespace BLL.Services
             else if (!email.Contains("@"))
             {
                 throw new ValidationException("Емейл введено не коректно!");
+            }
+        }
+
+        public void Authorization(string userName, string password)
+        {
+            User user = Db.Users.Find(u => u.UserName == userName).FirstOrDefault();
+            if (userName == String.Empty)
+            {
+                throw new ValidationException("Логін не введений!");
+            }
+            else if (user == null)
+            {
+                throw new ValidationException("Логін введено не правильно!");
+            }
+            else if (password == String.Empty)
+            {
+                throw new ValidationException("Пароль не введений!");
+            }
+            else if(user.Password != password)
+            {
+                throw new ValidationException("Пароль введено не правильно!");
             }
         }
     }
