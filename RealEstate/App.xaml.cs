@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace RealEstate_v2
+namespace RealEstate
 {
     /// <summary>
     /// Interaction logic for App.xaml

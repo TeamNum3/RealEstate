@@ -3,24 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
-namespace Models
+namespace DAL.Entities
 {
     public class User
     {
-        string UserName
+        public int Id
         {
             get;
             set;
         }
 
-        string Password
+        public string UserName
         {
             get;
             set;
         }
 
-        string Email
+        public string Password
+        {
+            get;
+            set;
+        }
+
+        public string Email
         {
             get;
             set;

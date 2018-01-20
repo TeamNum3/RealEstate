@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Data.Entity.SqlServer;
+using DAL.Entities;
 
-namespace Models
+namespace DAL.EF
 {
     public class MyContext : DbContext
     {

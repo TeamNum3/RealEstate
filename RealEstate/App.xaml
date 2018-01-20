@@ -1,7 +1,7 @@
-﻿<Application x:Class="RealEstate_v2.App"
+﻿<Application x:Class="RealEstate.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:RealEstate_v2"
+             xmlns:local="clr-namespace:RealEstate"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          
