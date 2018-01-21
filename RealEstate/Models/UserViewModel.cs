@@ -5,22 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Text.RegularExpressions;
+using BLL.Validation;
 
 namespace RealEstate.Models
 {
     public class UserViewModel : IDataErrorInfo
     {
-        //[Required(ErrorMessage = "Логін не введений", AllowEmptyStrings = false)]
-        //[StringLength(13, MinimumLength = 4, ErrorMessage = "3<Логін <14")]
         public string UserName
         {
             get;
             set;
         }
 
-        //[Required(ErrorMessage = "Пароль не введений")]
-        //[StringLength(13, MinimumLength = 4, ErrorMessage = "3<Логін <14")]
         public string Password
         {
             get;
@@ -33,7 +29,6 @@ namespace RealEstate.Models
             set;
         }
 
-        //[EmailAddress(ErrorMessage = "Не правильний формат емейлу")]
         public string Email
         {
             get;
@@ -52,34 +47,26 @@ namespace RealEstate.Models
             Email = email;
         }
 
+        //якщо кілька перевірок
+        //string Test(params BLL.Interfaces.IValidation[] validations)
+        //{
+        //    return validations.Where(v => v.Validate() != null).FirstOrDefault().Validate();
+        //}
+
         public string this[string columnName]
         {
             get
             {
 
                 string errorMessege = String.Empty;
-                string emailPattern = @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
-                @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$"; //msdn пропонує таке
-
-                //var results = new List<ValidationResult>();
-                //if (!Validator.TryValidateObject(this, new ValidationContext(this), results, true))
-                //{
-                //    error = results[0].ErrorMessage;
-                //}
 
                 switch (columnName)
                 {
                     case "UserName":
-                        if (UserName.Length < 3 || UserName.Length > 13)
-                        {
-                            errorMessege = "3<Логін <14";
-                        }
+                        errorMessege = (new StringLengthValidation() { Property = "Логін", PropertyValue = UserName }).Validate();
                         break;
                     case "Email":
-                        if (!Regex.IsMatch(Email, emailPattern, RegexOptions.IgnoreCase))
-                        {
-                            errorMessege = "Не правильний формат емейлу";
-                        }
+                        errorMessege = (new EmailAddressValidation() { PropertyValue = Email }).Validate(); ;
                         break;
                 }
                 return errorMessege;

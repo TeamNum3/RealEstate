@@ -54,7 +54,7 @@
                     <Label Content="Логін:" Canvas.Left="51" Canvas.Top="78"/>
                     <TextBox Name="LoginRegister" Width="150" Height="25" Canvas.Left="178" Canvas.Top="79">
                         <TextBox.Text>
-                            <Binding Path="UserName"  UpdateSourceTrigger="PropertyChanged"  ValidatesOnDataErrors="True">
+                            <Binding Path="UserName"  UpdateSourceTrigger="LostFocus"  ValidatesOnDataErrors="True">
                                 <Binding.ValidationRules>
                                     <ExceptionValidationRule />
                                 </Binding.ValidationRules>
@@ -64,7 +64,7 @@
                     <Label Content="Електронна пошта:" Canvas.Left="51" Canvas.Top="112"/>
                     <TextBox Name="EmailRegister"  Width="150" Height="25" Canvas.Left="178" Canvas.Top="113">
                         <TextBox.Text>
-                            <Binding Path="Email" UpdateSourceTrigger="PropertyChanged"  ValidatesOnDataErrors="True">
+                            <Binding Path="Email" UpdateSourceTrigger="LostFocus"  ValidatesOnDataErrors="True">
                                 <Binding.ValidationRules>
                                     <ExceptionValidationRule />
                                 </Binding.ValidationRules>
