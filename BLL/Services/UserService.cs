@@ -7,6 +7,8 @@ using DAL.Interfaces;
 using DAL.Repositories;
 using DAL.Entities;
 using BLL.Infrastructure;
+using BLL.DTO;
+using System.ComponentModel.DataAnnotations;
 
 namespace BLL.Services
 {
@@ -23,74 +25,82 @@ namespace BLL.Services
             Db = new EFUnitOfWork();
         }
 
-        public void Registration(string username, string password, string repeatPassword, string email)
+        public void Registration(object o)
         {
-            checkUsernameR(username);
-            checkPasswordR(password, repeatPassword);
-            checkEmailR(email);
+            //checkUsernameR(username);
+            //checkPasswordR(password, repeatPassword);
+            //checkEmailR(email);
 
-            Db.Users.Create(new User(username, password, email));
-            Db.Save();
+
+            //UserDTO userDTO = new UserDTO(username, password, repeatPassword, email);
+
+            //var results = new List<ValidationResult>();
+            //if (!Validator.TryValidateObject(userDTO, new ValidationContext(userDTO), results, true))
+            //{
+            //    throw new Infrastructure.ValidationException(results[0].ErrorMessage);
+            //}
+            //Db.Users.Create(new User(username, password, email));
+            //Db.Save();
         }
 
-        void checkUsernameR(string username)
-        {
-            if (username == String.Empty)
-            {
-                throw new ValidationException("Логін не введений!");
-            }
-            else if (Db.Users.Find(u => u.UserName == username).Count() != 0) //Музичук був би мною довольний :)
-            {
-                throw new ValidationException("Логін уже використовується!");
-            }
-        }
+        //void checkUsernameR(string username)
+        //{
+        //    if (username == String.Empty)
+        //    {
+        //        throw new ValidationException("Логін не введений!");
+        //    }
+        //    else if (Db.Users.Find(u => u.UserName == username).Count() != 0) //Музичук був би мною довольний :)
+        //    {
+        //        throw new ValidationException("Логін уже використовується!");
+        //    }
+        //}
 
-        void checkPasswordR(string password, string repeatPassword)
-        {
-            if (password == String.Empty)
-            {
-                throw new ValidationException("Пароль не введений!");
-            }
-            else if (password != repeatPassword)
-            {
-                throw new ValidationException("Паролі не збігаються!");
-            }
-            else if (password.Length <= 6)
-            {
-                throw new ValidationException("Пароль повинен містити не менше 6 символів!");
-            }
-        }
+        //void checkPasswordR(string password, string repeatPassword)
+        //{
+        //    if (password == String.Empty)
+        //    {
+        //        throw new ValidationException("Пароль не введений!");
+        //    }
+        //    else if (password != repeatPassword)
+        //    {
+        //        throw new ValidationException("Паролі не збігаються!");
+        //    }
+        //    else if (password.Length <= 6)
+        //    {
+        //        throw new ValidationException("Пароль повинен містити не менше 6 символів!");
+        //    }
+        //}
 
-        void checkEmailR(string email)
-        {
-            if (email == String.Empty)
-            {
-                throw new ValidationException("Емейл не введений!");
-            }
-            else if (!email.Contains("@"))
-            {
-                throw new ValidationException("Емейл введено не коректно!");
-            }
-        }
+        //void checkEmailR(string email)
+        //{
+        //    if (email == String.Empty)
+        //    {
+        //        throw new ValidationException("Емейл не введений!");
+        //    }
+        //    else if (!email.Contains("@"))
+        //    {
+        //        throw new ValidationException("Емейл введено не коректно!");
+        //    }
+        //}
 
         public void Authorization(string userName, string password)
         {
             User user = Db.Users.Find(u => u.UserName == userName).FirstOrDefault();
             if (userName == String.Empty)
             {
-                throw new ValidationException("Логін не введений!");
+                throw new Infrastructure.ValidationException("Логін не введений!");
             }
             else if (user == null)
             {
-                throw new ValidationException("Логін введено не правильно!");
+                throw new Infrastructure.ValidationException("Логін введено не правильно!");
             }
             else if (password == String.Empty)
             {
-                throw new ValidationException("Пароль не введений!");
+                throw new Infrastructure.ValidationException("Пароль не введений!");
             }
             else if(user.Password != password)
             {
-                throw new ValidationException("Пароль введено не правильно!");
+                throw new Infrastructure.ValidationException("Пароль введено не правильно!");
             }
         }
     }

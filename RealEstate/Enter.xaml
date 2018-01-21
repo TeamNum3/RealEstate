@@ -9,6 +9,29 @@
         Icon= "Images/loginImage.png"
         ResizeMode="NoResize">
     <Grid Margin="0,0,3.6,12.4">
+        <Grid.Resources>
+            <Style TargetType="{x:Type TextBox}">
+                <Style.Triggers>
+                    <Trigger Property="Validation.HasError" Value="True">
+                        <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                    </Trigger>
+                </Style.Triggers>
+                <Setter Property="Validation.ErrorTemplate">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <DockPanel DockPanel.Dock="Right">
+                                <AdornedElementPlaceholder>
+                                    <Border BorderBrush="Red" BorderThickness="2"/>
+                                </AdornedElementPlaceholder>
+                                <TextBlock Margin="3" Text="*" Foreground="red" ToolTip="{Binding Path=AdornedElement.ToolTip, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Adorner}}}"/>
+                            </DockPanel>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+           
+        </Grid.Resources>
         <TabControl Name="SignIn">
             <TabItem Header="Увійти">
                 <Canvas HorizontalAlignment="Center" Margin="57,49,348.6,-49.4">
@@ -29,14 +52,42 @@
                     </Label>
 
                     <Label Content="Логін:" Canvas.Left="51" Canvas.Top="78"/>
-                    <TextBox Name="LoginRegister" Width="150" Height="25" Canvas.Left="178" Canvas.Top="79"/>
+                    <TextBox Name="LoginRegister" Width="150" Height="25" Canvas.Left="178" Canvas.Top="79">
+                        <TextBox.Text>
+                            <Binding Path="UserName"  UpdateSourceTrigger="PropertyChanged"  ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <ExceptionValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <Label Content="Електронна пошта:" Canvas.Left="51" Canvas.Top="112"/>
-                    <TextBox Name="EmailRegister"  Width="150" Height="25" Canvas.Left="178" Canvas.Top="113"/>
+                    <TextBox Name="EmailRegister"  Width="150" Height="25" Canvas.Left="178" Canvas.Top="113">
+                        <TextBox.Text>
+                            <Binding Path="Email" UpdateSourceTrigger="PropertyChanged"  ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <ExceptionValidationRule />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <Label Content="Пароль:" Canvas.Left="51" Canvas.Top="146"/>
-                    <PasswordBox Name="PasswordRegister" Width="150" Height="25" Canvas.Left="178" Canvas.Top="146"/>
+                    <PasswordBox Name="PasswordRegister" Width="150" Height="25" Canvas.Left="178" Canvas.Top="146">
+                    </PasswordBox>
                     <Label Content="Повторіть пароль:" Canvas.Left="51" Canvas.Top="180"/>
                     <PasswordBox Name="RepeatPasswordRegister" Width="150" Height="25" Canvas.Left="178" Canvas.Top="181"/>
-                    <Button Width="100" Height="25" Click="Button_RegisterClick" Content="Зареєструватись" Canvas.Left="228" Canvas.Top="215"/>
+                    <Button Width="100" Height="25" Click="Button_RegisterClick" Content="Зареєструватись" Canvas.Left="228" Canvas.Top="215">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=LoginRegister, Path=(Validation.HasError)}" Value="True">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </DataTrigger>
+
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
 
                 </Canvas>
             </TabItem>
