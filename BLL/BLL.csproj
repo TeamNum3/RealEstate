@@ -48,8 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="Interfaces\ICompareValidation.cs" />
     <Compile Include="Interfaces\IValidation.cs" />
     <Compile Include="Validation\EmailAddressValidation.cs" />
+    <Compile Include="Validation\CompareValidation.cs" />
     <Compile Include="Validation\StringLengthValidation.cs" />
     <Compile Include="Infrastructure\ValidationException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

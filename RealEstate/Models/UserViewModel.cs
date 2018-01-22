@@ -68,6 +68,12 @@ namespace RealEstate.Models
                     case "Email":
                         errorMessege = (new EmailAddressValidation() { PropertyValue = Email }).Validate(); ;
                         break;
+                    case "Password":
+                        errorMessege = (new StringLengthValidation() { Property = "Пароль", PropertyValue = Password }).Validate();
+                        break;
+                    case "ConfirmPassword":
+                        errorMessege = (new CompareValidation() { Properties = "Паролі", FirstPropertyValue = Password, SecondPropertyValue = ConfirmPassword }).Validate();
+                        break;
                 }
                 return errorMessege;
             }

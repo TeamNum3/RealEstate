@@ -30,16 +30,58 @@
                 </Setter>
             </Style>
 
-
+            <Style TargetType="{x:Type PasswordBox}">
+                <Style.Triggers>
+                    <Trigger Property="Validation.HasError" Value="True">
+                        <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                    </Trigger>
+                </Style.Triggers>
+                <Setter Property="Validation.ErrorTemplate">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <DockPanel DockPanel.Dock="Right">
+                                <AdornedElementPlaceholder>
+                                    <Border BorderBrush="Red" BorderThickness="2"/>
+                                </AdornedElementPlaceholder>
+                                <TextBlock Margin="3" Text="*" Foreground="red" ToolTip="{Binding Path=AdornedElement.ToolTip, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Adorner}}}"/>
+                            </DockPanel>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </Grid.Resources>
         <TabControl Name="SignIn">
             <TabItem Header="Увійти">
                 <Canvas HorizontalAlignment="Center" Margin="57,49,348.6,-49.4">
-                    <TextBox Name="userName" Width="150" Height="25" Canvas.Left="128" Canvas.Top="42"/>
+                    <TextBox Name="userName" Width="150" Height="25" Canvas.Left="128" Canvas.Top="42">
+                        <TextBox.Text>
+                            <Binding Path="UserName"  UpdateSourceTrigger="LostFocus"  ValidatesOnDataErrors="True"/>
+                        </TextBox.Text>
+                    </TextBox>
                     <Label Content="Логін:" Canvas.Left="39" Canvas.Top="41"/>
                     <Label Content="Пароль:" Canvas.Left="39" Canvas.Top="71"/>
-                    <PasswordBox Name="password" Width="150" Height="25" Canvas.Left="128" Canvas.Top="72"/>
-                    <Button Width="100" Height="25" Click="Button_LoginClick" Content="Вхід" Canvas.Left="178" Canvas.Top="115"/>
+                    <PasswordBox Name="password" Width="150" Height="25" Canvas.Left="128" Canvas.Top="72"
+                                 local:PasswordBoxAssistant.BindPassword="True"
+                                 local:PasswordBoxAssistant.BoundPassword="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"/>
+                    <Button Width="100" Height="25" Click="Button_LoginClick" Content="Вхід" Canvas.Left="178" Canvas.Top="115">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=userName}" Value="">
+                                        <Setter Property="IsEnabled" Value="False" />
+                                    </DataTrigger>
+
+                                    <DataTrigger Binding="{Binding ElementName=userName, Path=(Validation.HasError)}" Value="True">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </DataTrigger>
+
+                                    <DataTrigger Binding="{Binding ElementName=password, Path=(Validation.HasError)}" Value="True">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
                     <Label x:Name="MessageLabelLogin" HorizontalContentAlignment="Center" Height="22" Canvas.Left="54" Canvas.Top="15" Width="209">
                         <TextBlock x:Name="MessageLogin" FontSize="20"/>
                     </Label>
@@ -55,9 +97,9 @@
                     <TextBox Name="LoginRegister" Width="150" Height="25" Canvas.Left="178" Canvas.Top="79">
                         <TextBox.Text>
                             <Binding Path="UserName"  UpdateSourceTrigger="LostFocus"  ValidatesOnDataErrors="True">
-                                <Binding.ValidationRules>
+                                <!--<Binding.ValidationRules>
                                     <ExceptionValidationRule />
-                                </Binding.ValidationRules>
+                                </Binding.ValidationRules>-->
                             </Binding>
                         </TextBox.Text>
                     </TextBox>
@@ -65,17 +107,17 @@
                     <TextBox Name="EmailRegister"  Width="150" Height="25" Canvas.Left="178" Canvas.Top="113">
                         <TextBox.Text>
                             <Binding Path="Email" UpdateSourceTrigger="LostFocus"  ValidatesOnDataErrors="True">
-                                <Binding.ValidationRules>
-                                    <ExceptionValidationRule />
-                                </Binding.ValidationRules>
                             </Binding>
                         </TextBox.Text>
                     </TextBox>
                     <Label Content="Пароль:" Canvas.Left="51" Canvas.Top="146"/>
-                    <PasswordBox Name="PasswordRegister" Width="150" Height="25" Canvas.Left="178" Canvas.Top="146">
-                    </PasswordBox>
+                    <PasswordBox Name="PasswordRegister" Width="150" Height="25" Canvas.Left="178" Canvas.Top="146"
+                                 local:PasswordBoxAssistant.BindPassword="True"
+                                 local:PasswordBoxAssistant.BoundPassword="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"/>
                     <Label Content="Повторіть пароль:" Canvas.Left="51" Canvas.Top="180"/>
-                    <PasswordBox Name="RepeatPasswordRegister" Width="150" Height="25" Canvas.Left="178" Canvas.Top="181"/>
+                    <PasswordBox Name="RepeatPasswordRegister" Width="150" Height="25" Canvas.Left="178" Canvas.Top="181"
+                                 local:PasswordBoxAssistant.BindPassword="True"
+                                 local:PasswordBoxAssistant.BoundPassword="{Binding Path=ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"/>
                     <Button Width="100" Height="25" Click="Button_RegisterClick" Content="Зареєструватись" Canvas.Left="228" Canvas.Top="215">
                         <Button.Style>
                             <Style TargetType="Button">
@@ -83,8 +125,20 @@
                                     <DataTrigger Binding="{Binding Text, ElementName=LoginRegister}" Value="">
                                         <Setter Property="IsEnabled" Value="False" />
                                     </DataTrigger>
-                                    
+
                                     <DataTrigger Binding="{Binding ElementName=LoginRegister, Path=(Validation.HasError)}" Value="True">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </DataTrigger>
+
+                                    <DataTrigger Binding="{Binding ElementName=EmailRegister, Path=(Validation.HasError)}" Value="True">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </DataTrigger>
+
+                                    <DataTrigger Binding="{Binding ElementName=PasswordRegister, Path=(Validation.HasError)}" Value="True">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                    </DataTrigger>
+
+                                    <DataTrigger Binding="{Binding ElementName=RepeatPasswordRegister, Path=(Validation.HasError)}" Value="True">
                                         <Setter Property="IsEnabled" Value="False"/>
                                     </DataTrigger>
 
