@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace DAL.Entities
+namespace DataAccessLayer.Entities
 {
     public class User
     {

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL.Interfaces;
-using DAL.Repositories;
-using DAL.Entities;
-using BLL.Infrastructure;
-using BLL.DTO;
+using DataAccessLayer.Interfaces;
+using DataAccessLayer.Repositories;
+using DataAccessLayer.Entities;
+using BusinessLogicLayer.Infrastructure;
+using BusinessLogicLayer.DTO;
 using System.ComponentModel.DataAnnotations;
 
-namespace BLL.Services
+namespace BusinessLogicLayer.Services
 {
     public class UserService
     {

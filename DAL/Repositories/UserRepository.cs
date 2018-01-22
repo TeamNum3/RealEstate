@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL.Entities;
-using DAL.EF;
-using DAL.Interfaces;
+using DataAccessLayer.Entities;
+using DataAccessLayer.EF;
+using DataAccessLayer.Interfaces;
 using System.Data.Entity;
 
 
-namespace DAL.Repositories
+namespace DataAccessLayer.Repositories
 {
     public class UserRepository: IRepository<User>
     {

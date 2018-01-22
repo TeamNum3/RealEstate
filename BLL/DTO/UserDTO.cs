@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace BLL.DTO
+namespace BusinessLogicLayer.DTO
 {
     public class UserDTO
     {

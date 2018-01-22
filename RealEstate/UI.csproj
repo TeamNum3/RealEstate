@@ -118,9 +118,9 @@
     <Resource Include="Images\loginImage.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL\BLL.csproj">
+    <ProjectReference Include="..\BLL\BusinessLogicLayer.csproj">
       <Project>{63401608-afcc-4050-a682-d66852912bb9}</Project>
-      <Name>BLL</Name>
+      <Name>BusinessLogicLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

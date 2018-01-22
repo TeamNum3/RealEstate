@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Data.Entity.SqlServer;
-using DAL.Entities;
+using DataAccessLayer.Entities;
 
-namespace DAL.EF
+namespace DataAccessLayer.EF
 {
     public class MyContext : DbContext
     {

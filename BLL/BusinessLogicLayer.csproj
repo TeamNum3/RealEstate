@@ -7,8 +7,8 @@
     <ProjectGuid>{63401608-AFCC-4050-A682-D66852912BB9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BLL</RootNamespace>
-    <AssemblyName>BLL</AssemblyName>
+    <RootNamespace>BusinessLogicLayer</RootNamespace>
+    <AssemblyName>BusinessLogicLayer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -65,7 +65,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{302877c6-7140-4392-bb87-ca7c8d4ef1fc}</Project>
-      <Name>DAL</Name>
+      <Name>DataAccessLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

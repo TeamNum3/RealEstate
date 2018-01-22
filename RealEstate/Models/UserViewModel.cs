@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using BLL.Validation;
+using BusinessLogicLayer.Validation;
 
 namespace RealEstate.Models
 {
@@ -48,7 +48,7 @@ namespace RealEstate.Models
         }
 
         //якщо кілька перевірок
-        //string Test(params BLL.Interfaces.IValidation[] validations)
+        //string Test(params BusinessLogicLayer.Interfaces.IValidation[] validations)
         //{
         //    return validations.Where(v => v.Validate() != null).FirstOrDefault().Validate();
         //}

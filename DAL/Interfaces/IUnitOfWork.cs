@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL.Entities;
+using DataAccessLayer.Entities;
 
-namespace DAL.Interfaces
+namespace DataAccessLayer.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {

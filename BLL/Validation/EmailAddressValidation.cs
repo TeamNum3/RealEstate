@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace BLL.Validation
+namespace BusinessLogicLayer.Validation
 {
    public class EmailAddressValidation : Interfaces.IValidation
     {

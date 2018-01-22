@@ -11,9 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using BLL.Services;
-using BLL.Infrastructure;
-using BLL.DTO;
+using BusinessLogicLayer.Services;
+using BusinessLogicLayer.Infrastructure;
+using BusinessLogicLayer.DTO;
 using RealEstate.Models;
 
 namespace RealEstate

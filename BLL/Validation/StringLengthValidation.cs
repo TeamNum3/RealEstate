@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.Validation
+namespace BusinessLogicLayer.Validation
 {
     public class StringLengthValidation: Interfaces.IValidation
     {

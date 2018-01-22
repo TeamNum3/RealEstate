@@ -1,9 +1,9 @@
 ﻿using System;
-using DAL.EF;
-using DAL.Interfaces;
-using DAL.Entities;
+using DataAccessLayer.EF;
+using DataAccessLayer.Interfaces;
+using DataAccessLayer.Entities;
 
-namespace DAL.Repositories
+namespace DataAccessLayer.Repositories
 {
     public class EFUnitOfWork : IUnitOfWork
     {

@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "RealEstate\UI.csproj", "{EF416601-AC1E-4668-AABB-12BDF3EA0FF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{63401608-AFCC-4050-A682-D66852912BB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicLayer", "BLL\BusinessLogicLayer.csproj", "{63401608-AFCC-4050-A682-D66852912BB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{302877C6-7140-4392-BB87-CA7C8D4EF1FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DAL\DataAccessLayer.csproj", "{302877C6-7140-4392-BB87-CA7C8D4EF1FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
